@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../../../../../luadoc.css" type="text/css" />
+	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>LuaDoc</h1>
+<ul>
+	
+	<li><a href="../../../../../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li>
+		<a href="../../../../../files/mutils.html">mutils.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../../files/mutils/be/seeseemelk/common/Enum.html">mutils/be/seeseemelk/common/Enum.lua</a>
+	</li>
+
+	<li><strong>mutils/be/seeseemelk/common/List.lua</strong></li>
+	
+	<li>
+		<a href="../../../../../files/mutils/be/seeseemelk/common/Object.html">mutils/be/seeseemelk/common/Object.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../../files/mutils/be/seeseemelk/common/Pointer.html">mutils/be/seeseemelk/common/Pointer.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../../files/mutils/class.html">mutils/class.lua</a>
+	</li>
+
+	<li>
+		<a href="../../../../../files/mutils/mutils.html">mutils/mutils.lua</a>
+	</li>
+
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>mutils/be/seeseemelk/common/List.lua</code></h1>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#List:List">List:List</a>&nbsp;(filter)</td>
+	<td class="summary">Create a new List object </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:add">List:add</a>&nbsp;(value, ...)</td>
+	<td class="summary">Add a value to the List It is appended to the end of the List </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:asTable">List:asTable</a>&nbsp;()</td>
+	<td class="summary">Get the List as a normal Lua List </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:clone">List:clone</a>&nbsp;()</td>
+	<td class="summary">Create a new instances of this List with the same values Note: it does not copy the List recursively </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:concat">List:concat</a>&nbsp;(separator, startIndex, endIndex)</td>
+	<td class="summary">Return all elements of this List as a string A start and end index can be used.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:dump">List:dump</a>&nbsp;(splitter)</td>
+	<td class="summary">This method will dump the List to a string It is meant to be printed to the console or written to a file Note that you should use this for debugging, not serialisation </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:get">List:get</a>&nbsp;(index)</td>
+	<td class="summary">Get whatever value is stored at an index </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:getLength">List:getLength</a>&nbsp;()</td>
+	<td class="summary">Get the length of this List Only accounts for numbered entries starting from 1 without nils </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:has">List:has</a>&nbsp;(index)</td>
+	<td class="summary">Check if the List has anything in a certain entry </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:insert">List:insert</a>&nbsp;(position, value)</td>
+	<td class="summary">Insert a value into the List Shifts other elements up </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:put">List:put</a>&nbsp;(index, value)</td>
+	<td class="summary">Put a value in the List at a certain index </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:remove">List:remove</a>&nbsp;(position)</td>
+	<td class="summary">Remove an entry from the List Moves elements down to fill gaps </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:sort">List:sort</a>&nbsp;(comparator)</td>
+	<td class="summary">Sorts the List elements in a given order in-place </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#List:unpack">List:unpack</a>&nbsp;()</td>
+	<td class="summary">Get the contents of the List as a vararg </td>
+	</tr>
+
+</table>
+
+
+
+
+<h2>Tables</h2>
+<table class="table_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#List">List</a></td>
+	<td class="summary">The List class adds extra features to Lua's standard table API </td>
+	</tr>
+
+</table>
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="List:List"></a><strong>List:List</strong>&nbsp;(filter)</dt>
+<dd>
+Create a new List object
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  filter: (Optional) Only accept values of these types. Is string or class Can be string, number, function, a class, ...
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:add"></a><strong>List:add</strong>&nbsp;(value, ...)</dt>
+<dd>
+Add a value to the List It is appended to the end of the List
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  value: The value to add
+	</li>
+	
+	<li>
+	  ...: (Optional) extra values to add
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+This List for fluent syntax
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:asTable"></a><strong>List:asTable</strong>&nbsp;()</dt>
+<dd>
+Get the List as a normal Lua List
+
+
+
+
+
+
+
+<h3>Return value:</h3>
+A normal lua List containing the data
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:clone"></a><strong>List:clone</strong>&nbsp;()</dt>
+<dd>
+Create a new instances of this List with the same values Note: it does not copy the List recursively
+
+
+
+
+
+
+
+<h3>Return value:</h3>
+The copy of the List
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:concat"></a><strong>List:concat</strong>&nbsp;(separator, startIndex, endIndex)</dt>
+<dd>
+Return all elements of this List as a string A start and end index can be used. If they are left empty the beginning and end of the List will be used respectively
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  separator: (Optional) A string to place in between each index
+	</li>
+	
+	<li>
+	  startIndex: (Optional) The element to start with
+	</li>
+	
+	<li>
+	  endIndex: (Optional) The element to end with
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+A string with each index separated by the separator
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:dump"></a><strong>List:dump</strong>&nbsp;(splitter)</dt>
+<dd>
+This method will dump the List to a string It is meant to be printed to the console or written to a file Note that you should use this for debugging, not serialisation
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  splitter: 
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+A string containing a dump of the List
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:get"></a><strong>List:get</strong>&nbsp;(index)</dt>
+<dd>
+Get whatever value is stored at an index
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  index: The index to retrieve
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+The value of whatever was stored there
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:getLength"></a><strong>List:getLength</strong>&nbsp;()</dt>
+<dd>
+Get the length of this List Only accounts for numbered entries starting from 1 without nils
+
+
+
+
+
+
+
+<h3>Return value:</h3>
+The length if the List
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:has"></a><strong>List:has</strong>&nbsp;(index)</dt>
+<dd>
+Check if the List has anything in a certain entry
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  index: The index to check
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+True if there is something in the entry, false if it is empty
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:insert"></a><strong>List:insert</strong>&nbsp;(position, value)</dt>
+<dd>
+Insert a value into the List Shifts other elements up
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  position: Location where to insert
+	</li>
+	
+	<li>
+	  value: The value to insert
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+This object for fluent syntax
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:put"></a><strong>List:put</strong>&nbsp;(index, value)</dt>
+<dd>
+Put a value in the List at a certain index
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  index: Where should the value be stored
+	</li>
+	
+	<li>
+	  value: What should be stored
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+This object for fluent syntax
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:remove"></a><strong>List:remove</strong>&nbsp;(position)</dt>
+<dd>
+Remove an entry from the List Moves elements down to fill gaps
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  position: (Optional) The position of the entry. Nil for the last element
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+This object for fluent syntax
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:sort"></a><strong>List:sort</strong>&nbsp;(comparator)</dt>
+<dd>
+Sorts the List elements in a given order in-place
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  comparator: A function that can be used to compare elements (by default: func(a, b) return a < b end)
+	</li>
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+This List for fluent syntax
+
+
+
+</dd>
+
+
+
+
+<dt><a name="List:unpack"></a><strong>List:unpack</strong>&nbsp;()</dt>
+<dd>
+Get the contents of the List as a vararg
+
+
+
+
+
+
+
+<h3>Return value:</h3>
+A vararg with the contents of the List
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+<h2><a name="tables"></a>Tables</h2>
+<dl class="table">
+
+<dt><a name="List"></a><strong>List</strong></dt>
+<dd>The List class adds extra features to Lua's standard table API
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>
