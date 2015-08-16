@@ -1,7 +1,8 @@
 Package, Class = unpack(require("mutils.class"))
 package = Package.package
-class = Class.class
 delete = Class.delete
+instanceof = Class.instanceof
+isCompatible = Class.isCompatible
 
 ---
 -- Import a class into the global namespace

@@ -30,7 +30,7 @@ end
 -- @return This pointer for fluent syntax
 function Pointer:set(value)
 	if self.filter then
-		if Class.compatible(value, self.filter) then
+		if isCompatible(value, self.filter then
 			self.value = value
 		else
 			error("Incorrect value type for this pointer (needs: " .. self.filter ..

@@ -26,7 +26,7 @@ function List:put(index, value)
 	if value == nil then
 		self.values[index] = nil
 	elseif filter then
-		if Class.isCompatible(value, self.filter) then
+		if isCompatible(value, self.filter) then
 			self.values[index] = value
 		else
 			error("Incorrect type for this List")
@@ -53,7 +53,7 @@ end
 -- @return This List for fluent syntax
 function List:add(value, ...)
 	if self.filter then
-		if Class.isCompatible(value, self.filter) then
+		if isCompatible(value, self.filter) then
 			self.values[#self.values + 1] = value
 			return self
 		else
@@ -76,6 +76,23 @@ end
 -- @return True if there is something in the entry, false if it is empty
 function List:has(index)
 	return self.values[index] ~= nil
+end
+
+---
+-- Copy the values from a list or a table
+-- @param list The List or the table to copy from
+-- @return This list for fluent syntax
+function List:copyFrom(list)
+	local tbl = list
+	if instanceof(list, List) then
+		tbl = list:asTable()
+	end
+
+	for name, value in pairs(tbl) do
+		self:put(name, value)
+	end
+
+	return self
 end
 
 ---
